@@ -61,96 +61,138 @@ def review_file(use_case, file_path: str):
     path = Path(file_path)
 
     if not path.exists():
-        return None, f"✗ Error: File not found: {file_path}"
+        return (
+            None,
+            f"💀 File not found: {file_path}\n"
+            "   Did you even check if it exists? 🤦",
+        )
 
     if not path.is_file():
-        return None, f"✗ Error: Not a file: {file_path}"
+        return (
+            None,
+            f"💀 That's not a file, genius: {file_path}\n"
+            "   I need a FILE, not a directory! 📁",
+        )
 
     try:
         with open(path, "r", encoding="utf-8") as f:
             code = f.read()
 
-        print(f"\n📝 Reviewing: {file_path}")
-        print("⏳ Generating review...\n")
+        if not code.strip():
+            return (
+                None,
+                "💀 This file is EMPTY!\n"
+                "   There's nothing to roast here... "
+                "or is that the problem? 🤔",
+            )
+
+        print(f"\n🔥 Preparing to roast: {file_path}")
+        print("⏳ Analyzing your code like a trainee wrote it...\n")
 
         result = use_case.execute(code)
         return result, None
     except Exception as e:
-        return None, f"✗ Error reviewing file: {str(e)}"
+        return (
+            None,
+            f"💥 Error reviewing file: {str(e)}\n"
+            "   Even I can't fix this mess!",
+        )
 
 
 def main():
     """Interactive CLI for code review."""
-    # Welcome message
-    print("=" * 60)
-    print("🤖 AI Code Reviewer - Interactive Mode")
-    print("=" * 60)
-    print()
+    # Welcome message with style
+    print("\n" + "=" * 70)
+    print("🔥" + " " * 20 + "CODE ROASTER 3000" + " " * 20 + "🔥")
+    print("=" * 70)
+    print("🤖 The AI that will be brutally honest about your code")
+    print("💀 Prepare to be roasted (but also helped)")
+    print("=" * 70 + "\n")
 
     # Validate configuration
-    print("🔍 Validating configuration...")
+    print("🔍 Checking if you're actually configured...")
     is_valid, message = validate_config()
-    print(message)
+    if is_valid:
+        print(f"✅ {message}")
+    else:
+        print(f"❌ {message}")
     print()
 
     if not is_valid:
-        print("Please set GEMINI_API_KEY or add a service account JSON file.")
+        print(
+            "💀 Bruh, configure your API key first. "
+            "Can't roast code without it."
+        )
         sys.exit(1)
 
     # Build use case
     try:
         use_case = build_review_code_use_case()
     except Exception as e:
-        print(f"✗ Failed to initialize: {str(e)}")
+        print(f"💥 Oops! Failed to initialize: {str(e)}")
         sys.exit(1)
 
-    print("✓ Ready to review code!")
+    print("✨ Ready to absolutely destroy your code (constructively)!")
     print()
-    print("Commands:")
-    print("  - Enter a file path to review it")
-    print("  - Type 'exit' or 'quit' to exit")
-    print("  - Type 'help' for help")
-    print("-" * 60)
+    print("📋 Commands:")
+    print("  - Enter a file path to get roasted 🔥")
+    print("  - Type 'exit' or 'quit' to escape")
+    print("  - Type 'help' if you're lost")
+    print("-" * 70)
     print()
 
     # Interactive loop
     while True:
         try:
-            file_path = input("📁 File path (or 'exit' to quit): ").strip()
+            file_path = input(
+                "😈 Enter your code path (or 'exit' to quit): "
+            ).strip()
 
             if not file_path:
+                print("🤔 You typed... nothing? Try again, champ.\n")
                 continue
 
             if file_path.lower() in ["exit", "quit", "q"]:
-                print("\n👋 Goodbye!")
+                print(
+                    "\n👋 See ya! Hope your code survives without me! 💀\n"
+                )
                 break
 
             if file_path.lower() == "help":
-                print("\nCommands:")
+                print(
+                    "\n📖 Commands (because apparently you need help):"
+                )
                 print("  - Enter a file path (relative or absolute)")
-                print("  - 'exit' or 'quit' - Exit the program")
-                print("  - 'help' - Show this help message")
+                print(
+                    "  - 'exit' or 'quit' - Escape this roasting session"
+                )
+                print("  - 'help' - You're already here, genius")
                 print()
                 continue
 
             result, error = review_file(use_case, file_path)
 
             if error:
-                print(error)
-                print()
+                print(f"💥 {error}\n")
             else:
-                print("=" * 60)
-                print("📊 REVIEW RESULTS")
-                print("=" * 60)
+                print("\n" + "=" * 70)
+                print(
+                    "🔥" + " " * 25 + "THE ROAST" + " " * 25 + "🔥"
+                )
+                print("=" * 70)
                 print(result)
-                print("=" * 60)
-                print()
+                print("=" * 70)
+                print("\n💀 Hope you learned something! "
+                      "(You probably did)\n")
 
         except KeyboardInterrupt:
-            print("\n\n👋 Goodbye!")
+            print(
+                "\n\n💀 Interrupted! Fine, I'll stop roasting "
+                "your code... for now.\n"
+            )
             break
         except EOFError:
-            print("\n\n👋 Goodbye!")
+            print("\n\n👋 Bye! Your code is safe... for now.\n")
             break
 
 
