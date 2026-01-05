@@ -1,133 +1,132 @@
-# AI Code Reviewer
+# 🔥 CODE ROASTER 3000 🔥
 
-A command-line tool that uses Google's Gemini AI to review code and provide feedback, including summaries, issues, and suggestions.
+> *The AI-powered code reviewer that will absolutely destroy your code... constructively.*
 
-## Features
+A brutally honest command-line tool that uses Google's Gemini AI to roast your code like a senior engineer who's had one too many code reviews. Get ready for sarcasm, wit, and actual helpful feedback.
 
-- Automated code review using Gemini AI
-- Provides code summaries, identifies issues, and suggests improvements
-- Interactive CLI mode for real-time code reviews
-- Support for both API key and service account authentication
-- Clean architecture with separation of concerns
+**Architectural Fundamentals:** Built with Clean Architecture principles, implementing Dependency Injection and the Port/Adapter pattern to ensure separation of concerns between domain logic, application use cases, and infrastructure implementations. The project follows SOLID principles, particularly Dependency Inversion, allowing easy swapping of LLM providers without modifying core business logic. This architecture ensures maintainability, testability, and extensibility while keeping the domain layer completely independent of external frameworks.
 
-## Prerequisites
+## ✨ Features
 
-- Python 3.13 or higher
-- One of the following:
-  - A Google Gemini API key from [Google AI Studio](https://aistudio.google.com/apikey) (recommended)
-  - A Google Cloud service account JSON file with Vertex AI API enabled
+- 🔥 **Brutally Honest Reviews**: Get roasted by AI that doesn't hold back
+- 💀 **Sarcastic but Helpful**: We'll make fun of your code, but we'll also fix it
+- 🎯 **Interactive CLI**: Real-time code roasting with a beautiful (and sassy) interface
+- 💾 **Auto-Save Reviews**: All reviews are automatically saved as markdown files for future reference
+- 🔐 **Flexible Auth**: Works with API keys or service accounts (we're not picky)
+- 🏗️ **Clean Architecture**: Because even trolls need good code structure
 
-## Installation
+## 🚀 Quick Start
 
-1. Clone the repository:
+### Prerequisites
+
+- Python 3.13+ (because we use modern stuff, not ancient Python 2.7)
+- A Google Gemini API key ([Get one here](https://aistudio.google.com/apikey)) OR a service account JSON file
+
+### Installation
+
+1. **Clone this masterpiece:**
 ```bash
 git clone <repository-url>
 cd ai_code_reviewer
 ```
 
-2. Create a virtual environment (recommended):
+2. **Create a virtual environment** (because you're not a monster):
 ```bash
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. Install dependencies:
+3. **Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-## Configuration
+## ⚙️ Configuration
 
-The tool supports two authentication methods:
-
-### Option 1: API Key (Recommended - Simplest)
+### Option 1: API Key (The Easy Way) 🎯
 
 Get your API key from [Google AI Studio](https://aistudio.google.com/apikey).
 
-**Using environment variable:**
+**Set it up:**
 ```bash
 export GEMINI_API_KEY="your-api-key-here"
 ```
 
-**Using .env file:**
-Create a `.env` file in the project root:
+**Or use a `.env` file** (because we support modern practices):
 ```
 GEMINI_API_KEY=your-api-key-here
 ```
 
-**Make it permanent:**
-Add it to your shell profile (`~/.zshrc`, `~/.bashrc`, etc.):
+**Make it permanent** (so you don't have to do this every time):
 ```bash
 echo 'export GEMINI_API_KEY="your-api-key-here"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### Option 2: Service Account JSON File
+### Option 2: Service Account (The Enterprise Way) 🏢
 
 If you have a Google Cloud service account JSON file:
 
-1. Place the JSON file in the project root (e.g., `igoove-95cf35b968d2.json`)
-
-2. **Important:** Enable Vertex AI API in your Google Cloud project:
+1. Drop it in the project root (e.g., `credentials.json`)
+2. **Enable Vertex AI API** (because Google requires it):
    - Visit: https://console.developers.google.com/apis/api/aiplatform.googleapis.com/overview?project=YOUR_PROJECT_ID
-   - Click "Enable"
-   - Wait a few minutes for it to propagate
+   - Click "Enable" (it's not that hard)
+   - Wait a few minutes (patience is a virtue)
+3. The tool will automatically find and use it (we're smart like that)
 
-3. The tool will automatically detect and use the JSON file
-
-**Alternative:** Set `GEMINI_API_KEY` to the JSON file path:
+**Or point to it directly:**
 ```bash
 export GEMINI_API_KEY="/path/to/your/service-account.json"
 ```
 
-## Usage
+## 🎮 Usage
 
-### Interactive Mode (Recommended)
+### Interactive Mode (The Fun Way) 🎪
 
-Run the CLI without arguments to enter interactive mode:
+Run without arguments and enter the roasting zone:
 
 ```bash
 python cmd/cli.py
 ```
 
-This will:
-1. Validate your configuration
-2. Enter an interactive loop where you can:
-   - Enter file paths to review
-   - Type `help` for commands
-   - Type `exit` or `quit` to exit
-
-**Example session:**
+**What you'll see:**
 ```
-============================================================
-🤖 AI Code Reviewer - Interactive Mode
-============================================================
+======================================================================
+🔥                    CODE ROASTER 3000                    🔥
+======================================================================
+🤖 The AI that will be brutally honest about your code
+💀 Prepare to be roasted (but also helped)
+======================================================================
 
-🔍 Validating configuration...
-✓ Configuration valid: Using GEMINI_API_KEY from AI Studio
+🔍 Checking if you're actually configured...
+✅ ✓ Configuration valid: Using GEMINI_API_KEY from AI Studio
 
-✓ Ready to review code!
+✨ Ready to absolutely destroy your code (constructively)!
 
-Commands:
-  - Enter a file path to review it
-  - Type 'exit' or 'quit' to exit
-  - Type 'help' for help
-------------------------------------------------------------
+📋 Commands:
+  - Enter a file path to get roasted 🔥
+  - Type 'exit' or 'quit' to escape
+  - Type 'help' if you're lost
+----------------------------------------------------------------------
 
-📁 File path (or 'exit' to quit): src/main.py
-📝 Reviewing: src/main.py
-⏳ Generating review...
+😈 Enter your code path (or 'exit' to quit): src/main.py
+🔥 Preparing to roast: src/main.py
+⏳ Analyzing your code like a trainee wrote it...
 
-============================================================
-📊 REVIEW RESULTS
-============================================================
-[Review output here...]
-============================================================
+======================================================================
+🔥                         THE ROAST                         🔥
+======================================================================
+[Your code gets absolutely destroyed here... but constructively]
+======================================================================
+
+💾 Review saved to: reviews/main_review_20250101_143022.md
+
+💀 Hope you learned something! (You probably did)
 ```
 
-### Non-Interactive Mode
+### Non-Interactive Mode (The Quick Way) ⚡
 
-Review a single file by providing the file path as an argument:
+Review a single file and get roasted immediately:
 
 ```bash
 python cmd/cli.py path/to/your/file.py
@@ -135,66 +134,110 @@ python cmd/cli.py path/to/your/file.py
 
 **Examples:**
 
-Review a Python file:
 ```bash
+# Python file
 python cmd/cli.py src/main.py
-```
 
-Review a JavaScript file:
-```bash
+# JavaScript file
 python cmd/cli.py app/index.js
-```
 
-Review any code file:
-```bash
+# Any code file (we're not picky)
 python cmd/cli.py examples/example.go
 ```
 
-## How It Works
+## 🎯 What You'll Get
 
-1. The tool reads the code from the specified file
-2. Sends it to Gemini AI for review
-3. Displays the review results, including:
-   - Summary
-   - Issues found
-   - Suggestions for improvement
+The AI will roast your code with:
 
-## Project Structure
+- **Sarcastic Summary**: "You code like a trainee who just discovered copy-paste"
+- **Brutal Issues**: "This looks like it was written at 3 AM after 5 energy drinks"
+- **Actual Suggestions**: Real fixes that will make your code less... terrible
+
+### 💾 Review Files
+
+Every review is automatically saved to a markdown file in the `reviews/` directory with:
+- Original file path
+- Review timestamp
+- Full review content
+- Formatted for easy reading
+
+**File naming:** `filename_review_YYYYMMDD_HHMMSS.md`
+
+Example: `main_review_20250101_143022.md`
+
+Perfect for:
+- Keeping track of code improvements over time
+- Sharing reviews with your team
+- Building a portfolio of your code evolution
+- Proving to your boss that you're actually improving
+
+## 🏗️ Project Structure
 
 ```
 ai_code_reviewer/
 ├── application/
 │   └── usecases/
-│       └── review_code.py      # Use case for code review
+│       └── review_code.py      # The roasting logic
 ├── cmd/
-│   └── cli.py                  # Command-line interface
-├── container.py                # Dependency injection container
+│   └── cli.py                  # The beautiful (and sassy) CLI
+├── container.py                # Dependency injection (fancy stuff)
 ├── domain/
-│   └── ports.py                # Domain interfaces
+│   └── ports.py                # Interfaces (because we're professional)
 ├── infrastructure/
 │   └── llm/
-│       └── gemini_client.py    # Gemini AI client implementation
-├── requirements.txt            # Python dependencies
-└── README.md                   # This file
+│       └── gemini_client.py    # Talks to Google's AI
+├── reviews/                    # Auto-generated review markdown files
+│   └── *.md                    # Your roasted code reviews
+├── requirements.txt            # Dependencies (obviously)
+└── README.md                   # This file (you're reading it)
 ```
 
-## Troubleshooting
+## 🛠️ Tech Stack
 
-### "API key not valid" error
-- Make sure your `GEMINI_API_KEY` is set to an actual API key string, not a file path
-- Verify the API key is correct and active
-- Get a new API key from [Google AI Studio](https://aistudio.google.com/apikey)
+- **Python 3.13+**: Because we like modern Python
+- **Google Gemini AI**: The AI that roasts your code
+- **Clean Architecture**: Because even trolls need structure
+- **python-dotenv**: For `.env` file support (we're not savages)
 
-### "Vertex AI API has not been used" error
-- If using a service account JSON file, you need to enable Vertex AI API
-- Visit your Google Cloud Console and enable the API for your project
-- Wait a few minutes after enabling for it to propagate
+## 🐛 Troubleshooting
 
-### "GEMINI_API_KEY not found" error
-- Set the environment variable: `export GEMINI_API_KEY="your-key"`
-- Or place a service account JSON file in the project root
-- Or create a `.env` file with `GEMINI_API_KEY=your-key`
+### "API key not valid" 💥
+- Make sure you're using an actual API key string, not a file path
+- Check if your API key is still valid (they expire sometimes)
+- Get a fresh one from [Google AI Studio](https://aistudio.google.com/apikey)
 
-## License
+### "Vertex AI API has not been used" 🏢
+- You're using a service account but forgot to enable Vertex AI
+- Go to Google Cloud Console and enable it (it's literally one click)
+- Wait a few minutes (Google needs time to process your request)
 
-[Add your license here]
+### "GEMINI_API_KEY not found" 🔍
+- Set it: `export GEMINI_API_KEY="your-key"`
+- Or drop a service account JSON file in the project root
+- Or create a `.env` file (we support that too)
+
+## 🤝 Contributing
+
+Found a bug? Want to make it even more sarcastic? PRs welcome!
+
+1. Fork it
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgments
+
+- Google Gemini AI for powering the roasts
+- All the developers whose code got roasted (you made this possible)
+- The Python community for making this possible
+
+---
+
+**Made with 💀 and 🔥 by someone who's seen too much bad code**
+
+*Remember: We roast because we care. Your code will thank you later.*

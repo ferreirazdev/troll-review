@@ -1,3 +1,5 @@
 venv/
 *.pyc
 igoove-95cf35b968d2.json
+reviews/
+.env
